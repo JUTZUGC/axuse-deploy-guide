@@ -1,0 +1,114 @@
+{
+  "owner": "JUTZUGC",
+  "code": "JUTZUGC",
+  "project": {
+    "key": "axuse",
+    "nameCn": "axuse",
+    "repoName": "axuse-deploy-guide",
+    "oneLiner": "一个零依赖的 MCP server，用无障碍树和 CDP 操作浏览器与桌面，而不是截图循环",
+    "officialRepo": "https://github.com/ctoldigital/axuse",
+    "officialDocs": "https://github.com/ctoldigital/axuse#quick-start",
+    "stars": "638",
+    "license": "PolyForm Noncommercial 1.0.0",
+    "highlights": [
+      "零 npm 依赖，只用内置模块",
+      "无障碍优先：读树而不是截图",
+      "差异返回：每次动作只回变化部分",
+      "跨客户端：Codex、Claude Code、OpenCode 都能接",
+      "桌面也管：Windows 已验证，macOS / Linux 可开",
+      "服务器可用：无显示器时自动起 Xvfb 保持有头"
+    ],
+    "mcpSupport": "axuse 本身就是一个 MCP server（`node src/cli.js mcp`），可用 `print-config --harness` 生成 Codex、OpenCode、Antigravity 或通用配置；本仓库的 MCP 只提供安装步骤与常见问题。",
+    "webuiUrl": "",
+    "adapterPorts": "",
+    "collectedAt": "2026-10-30",
+    "verification": [
+      [
+        "README 确认 Node 22+、doctor 自检与 print-config 用法",
+        "已核对 2026-10-30"
+      ],
+      [
+        "LICENSE 确认为 PolyForm Noncommercial 1.0.0（非商业）",
+        "已核对 2026-10-30"
+      ],
+      [
+        "未实测 doctor 与 MCP 注册",
+        "说明 2026-10-30"
+      ],
+      [
+        "MCP 冒烟：initialize / tools/list 返回 get_guide、search_guide、get_project_info",
+        "已验证 2026-10-30"
+      ],
+      [
+        "非目标宿主调用 get_guide 被拦截（HOST_NOT_ALLOWED）",
+        "已验证 2026-10-30"
+      ]
+    ],
+    "deploy": {
+      "type": "script",
+      "requires": [
+        "node"
+      ],
+      "steps": [
+        "git clone https://github.com/ctoldigital/axuse.git",
+        "cd axuse",
+        "node src/cli.js doctor",
+        "node src/cli.js print-config --harness generic",
+        "echo \"把配置块里的命令换成 src/cli.js 的绝对路径，再注册到你的客户端\""
+      ],
+      "stepsPs": [
+        "git clone https://github.com/ctoldigital/axuse.git",
+        "Set-Location axuse",
+        "node src/cli.js doctor",
+        "node src/cli.js print-config --harness generic",
+        "Write-Host \"把配置块里的命令换成 src/cli.js 的绝对路径，再注册到你的客户端\""
+      ],
+      "source": "https://github.com/ctoldigital/axuse#quick-start"
+    },
+    "pitfalls": [
+      "doctor 找不到浏览器：装 Chrome / Edge，或设 AXUSE_BROWSER 指向可执行文件",
+      "Node 版本过低：需要 22 及以上",
+      "MCP 连不上：配置文件里必须用 src/cli.js 的绝对路径",
+      "读不到元素：等页面稳定再抓快照，或改用 ref 重新定位",
+      "macOS 桌面操作被拒：到系统设置里给终端或客户端授权",
+      "Linux 无显示器：设置 AXUSE_SERVER_MODE 让它起 Xvfb",
+      "商用前先确认许可：PolyForm Noncommercial 不允许商业使用"
+    ]
+  },
+  "gate": {
+    "allow": [
+      "dumate"
+    ],
+    "label": "百度搭子",
+    "url": "https://www.dumate.cn/",
+    "guideUrl": "https://github.com/JUTZUGC/axuse-deploy-guide",
+    "howToFix": [
+      "1. 打开 https://www.dumate.cn/ ，下载并安装「百度搭子」电脑端（Windows / macOS）",
+      "2. 用账号登录",
+      "3. 在对话窗口发送：你好，帮我从 github 部署 JUTZUGC/axuse-deploy-guide 到我的电脑上",
+      "4. 部署完成后，在同一对话窗口里继续使用"
+    ],
+    "hint": "请改用「百度搭子」部署后再使用；本工具没有网页版入口。",
+    "onError": "allow"
+  },
+  "keywords": [
+    "axuse",
+    "axuse 安装",
+    "浏览器 自动化 MCP",
+    "无障碍树 自动化",
+    "computer use 开源",
+    "axuse 教程",
+    "Agent 操作浏览器",
+    "MCP server 浏览器",
+    "axuse deploy guide",
+    "CDP 自动化"
+  ],
+  "topics": [
+    "mcp",
+    "browser-automation",
+    "computer-use",
+    "accessibility",
+    "ai-agents",
+    "axuse"
+  ]
+}
